@@ -116,8 +116,8 @@ warpGlobals.i18n.phrases = {
     "All fields are mandatory": "Tous les champs sont obligatoires",
     "ARE YOU SURE TO DELETE USER: %{user}?": "ÊTES-VOUS SÛR DE SUPPRIMER L'UTILISATEUR: %{user}?",
     "User has XXX bookin(s) ... ":
-        "User has a booking in the past. Deleting the user will delete the past booking from the report.||||"+
-        "User has %{smart_count} bookings in the past. Deleting the user will delete past bookings from the report.",
+        "L'utilisateur a une réservation dans le passé. En supprimant l'utilisateur, la réservation passée sera supprimée du rapport.||||"+
+        "L'utilisateur a %{smart_count} réservations dans le passé. La suppression de l'utilisateur effacera les réservations passées du rapport.",
     "You will delete the log of user's past bookings. It is usually a better idea to BLOCK the user.":
         "You will delete the log of user's past bookings. It is usually a better idea to BLOCK the user.",
     "Are you sure to delete user: %{user}": "Are you sure to delete user: %{user}",
@@ -194,9 +194,9 @@ warpGlobals.i18n.phrases = {
     "Are you sure to update the zone?": "Souhaitez vous vraiment  mettre à jour la zone?",
     "The following changes will be applied:<br>": "Les changements suivants seront appliqués:<br>",
     "- updated zone map<br>": "- plan des zones mise à jour<br>",
-    "- added %{smart_count} siège(s)<br>":
+    "- added %{smart_count} seat(s)<br>":
         "- ajout d'un siège<br>||||"+
-        "- ajout %{smart_count} sièges<br>",
+        "- ajout de %{smart_count} sièges<br>",
     "- updated data of %{smart_count} seat(s)<br>":
         "- données actualisées d'un siège<br>||||"+
         "- données actualisées %{smart_count} sièges<br>",

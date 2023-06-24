@@ -1,23 +1,44 @@
 version: "3"
 services:
-  warp-demo-db:
+  warp-db:
     image: postgres
+    restart: always
     environment:
-      POSTGRES_PASSWORD: 'postgres_password'
-  warp-demo-wsgi:
+      POSTGRES_PASSWORD: 'gfgdfgdfggg3r11'
+      PGDATA: '/var/lib/postgresql/data/pgdata'
+    volumes:
+      - /datas/appdata/postgres_warp:/var/lib/postgresql/data
+    networks:
+      - swag_default
+  warp-wsgi:
     build: .
+    restart: always
     depends_on:
-    - warp-demo-db
+    - warp-db
     environment:
-      WARP_DATABASE: "postgresql://postgres:postgres_password@warp-demo-db:5432/postgres"
-      WARP_SECRET_KEY: 'mysecretkey'
+      WARP_DATABASE: "postgresql://postgres:gfgdfgdfggg3r11@warp-db:5432/postgres"
+      WARP_SECRET_KEY: '12AZ12dfsf'
       WARP_DATABASE_INIT_SCRIPT: '["sql/schema.sql","sql/sample_data.sql"]'
-      WARP_LANGUAGE_FILE: 'i18n/en.js'
-  warp-demo-nginx:
+      WARP_LANGUAGE_FILE: 'i18n/fr.js'
+      WARP_WEEKS_IN_ADVANCE: 4
+    networks:
+      - swag_default
+  warp-nginx:
     image: nginx
+    restart: always
     depends_on:
-    - warp-demo-wsgi
+    - warp-wsgi
     volumes:
       - ./res/nginx.conf:/etc/nginx/conf.d/default.conf:ro
-    ports:
-      - "8080:80"
+    networks:
+      - swag_default
+  adminer:
+    image: adminer
+    restart: always
+    networks:
+      - swag_default
+
+networks:
+  swag_default:
+    external: true
+  warp_default:

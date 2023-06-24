@@ -52,6 +52,12 @@ RUN \
 #COPY --from=compile-image /opt/warp/wheel ./wheel
 #RUN pip install --no-index wheel/*.whl
 
+
+# add two lines below 
+RUN apt-get update
+RUN apt-get install -y build-essential libpq-dev libpcre3 libpcre3-dev
+
+
 COPY --from=compile-image /opt/warp/warp/static ./static
 COPY res/warp_uwsgi.ini .
 

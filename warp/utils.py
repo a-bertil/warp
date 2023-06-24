@@ -59,6 +59,7 @@ def getNextWeek():
         res.append( {
             "timestamp": ts,
             "date": strftime("%Y-%m-%d",t),
+            "datefr": strftime("%d-%m-%Y",t),
             "weekdayN": strftime("%w",t),
             "isWeekend": t.tm_wday>=5
         })

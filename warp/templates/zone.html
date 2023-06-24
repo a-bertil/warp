@@ -156,16 +156,23 @@
             <div class="zone_datetime_container">
 
                 <div class="zone_datelist">
-                    {% for w in nextWeek %}
+                    {% for w in nextWeek %}	
+						
+						{% if w['isWeekend'] %}	
+                           <hr>
+						{% else %}
+						
                     <p>
                         <label>
-                            <input class="filled-in date_checkbox" type="checkbox" value="{{w['timestamp']}}" />
+							<input class="filled-in date_checkbox" type="checkbox" value="{{w['timestamp']}}" />
                             <span>
                                 {# TODO_TR quite ugly #}
-                                <script>document.write(warpGlobals.i18n.weekdaysShort[{{ w['weekdayN'] }}]); </script>, {{ w['date'] }}
+                                <script>document.write(warpGlobals.i18n.weekdaysShort[{{ w['weekdayN'] }}]); </script>, {{ w['datefr'] }}
                             </span>
                         </label>
                     </p>
+					 {% endif %}
+					 
                     {% endfor %}
                 </div>
 
